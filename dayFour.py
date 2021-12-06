@@ -92,7 +92,21 @@ def solution():
 
 
 
-
+def solutionP2():
+    boards, nums = unpack()
+    lastnum = 0
+    lastboard = 0
+    for num in nums:
+        tr = []
+        for board in boards:
+            board.mark(num)
+            if not board.winnerBoard():
+                tr.append(board)
+            else:
+                lastboard = board
+                lastnum = num
+        boards = tr
+    return lastnum * lastboard.winnerCount()
 
 
 
